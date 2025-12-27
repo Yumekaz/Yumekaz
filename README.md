@@ -1,58 +1,85 @@
 # Hi, I’m Mihir Swarnkar
 
-I build systems from first principles, with a focus on correctness, failure modes,
-and recovery. My work is exploratory and early-stage, aimed at understanding how
-real systems behave under stress rather than producing polished demos.
+I build systems from first principles, focusing on correctness, failure modes,
+and recovery. My work is hands-on and exploratory, centered on understanding how
+distributed and OS-level systems behave under real constraints.
 
-I prefer depth over breadth and document what breaks, why it breaks, and what the
-constraints actually are.
+I prefer one deep system over many shallow projects and document trade-offs,
+failures, and limits explicitly.
+
+---
+
+## Core Systems Work
+
+### Mini-Redis-Cassandra — Distributed Key-Value Store
+**Python · TCP · Raft-inspired consensus · Consistent Hashing**
+
+A distributed key-value database built to explore CAP trade-offs, replication,
+and failure handling.
+
+- Implemented configurable consistency levels (ANY, QUORUM, STRONG) to study
+  availability vs consistency behavior under partitions
+- Built a Raft-inspired leader election and replication mechanism, observing
+  stable leader failover during simulated network partitions
+- Designed sharding via consistent hashing with virtual nodes for balanced key
+  distribution and minimal rebalancing
+- Implemented a custom TCP-based protocol with JSON framing, sustaining
+  thousands of operations per second in local multi-node tests
+- Wrote a fault-injection framework to simulate packet drops and network delays,
+  validating recovery paths and replica convergence
+
+This system is intentionally simplified and incomplete, but it forced explicit
+reasoning about safety, liveness, and failure boundaries.
+
+---
+
+### Mini-Docker — Container Runtime Implementation
+**Python · Linux kernel APIs · cgroups v2**
+
+A container runtime built from scratch to understand process isolation and
+resource control in Linux.
+
+- Implemented multiple Linux namespaces (PID, NET, IPC, UTS, MNT, USER) to achieve
+  process and filesystem isolation
+- Designed a defense-in-depth security model using seccomp-BPF filtering,
+  capability dropping, and `NO_NEW_PRIVS`
+- Integrated cgroups v2 controllers to enforce CPU and memory limits and protect
+  the host from resource exhaustion
+- Built basic container networking using veth pairs, Linux bridges, and NAT
+- Measured lightweight overhead (~12 MB memory) and fast startup latency in local
+  benchmarks
+
+This project exposed the complexity behind container semantics and the importance
+of correct init and signal-handling behavior.
 
 ---
 
 ## Current Focus
 
-- Building a **replicated key-value store** from scratch
-- Starting with **single-node correctness**, WAL, and crash recovery
-- Explicitly stating **guarantees vs non-guarantees**
-- Treating failures and limitations as first-class artifacts
+- Extending distributed system work with deeper emphasis on:
+  - durability semantics
+  - replication safety
+  - crash recovery
+  - explicit guarantees vs non-guarantees
+- Treating failures, invariants, and limits as first-class artifacts
 
-This system is early-stage and evolving.
-
----
-
-## Prior Exploratory System Work
-
-- **Mini Redis-like KV Store**
-  - In-memory state
-  - Write-ahead logging
-  - Crash recovery via log replay
-  - Learned the real cost of durability and fsync semantics
-
-- **Mini Container Runtime**
-  - Process lifecycle exploration
-  - Linux namespaces and cgroups
-  - Signal handling across process boundaries
-  - Discovered why PID 1 and init behavior matter
-
-These were stepping stones, not production systems.
+I am early-stage and not claiming expertise.
+I am building toward it deliberately.
 
 ---
 
 ## How I Work
 
-- One system over many projects
+- Depth over breadth
 - Written invariants over clever code
-- Public code and documented failures
-- No framework abstractions for core logic
-- Comfort with being explicit about limits
-
-I am not claiming expertise.
-I am building toward it deliberately.
+- Explicit trade-offs and non-goals
+- Public code with documented failures
+- Minimal abstractions for core system logic
 
 ---
 
 ## Links
 
-- Portfolio / Engineering Notes: [your website link]
+- Portfolio / Engineering Notes: [your website]
 - GitHub: https://github.com/Yumekaz
-- Email: your.email@example.com
+- Email: mihir.swarnkar722@gmail.com
