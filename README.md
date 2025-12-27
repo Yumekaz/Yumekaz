@@ -80,6 +80,6 @@ I am building toward it deliberately.
 
 ## Links
 
-- Portfolio / Engineering Notes: [your website]
+- Portfolio / Engineering Notes: [[Mihir]](https://yumekaz.github.io/Portfolio/)
 - GitHub: https://github.com/Yumekaz
 - Email: mihir.swarnkar722@gmail.com
