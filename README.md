@@ -9,39 +9,37 @@ and making system behavior observable instead of hidden behind abstractions.
 
 I prefer a few deep systems over many shallow projects.
 
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Rust](https://img.shields.io/badge/Rust-000000?style=flat-square&logo=rust&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
+![Distributed Systems](https://img.shields.io/badge/Distributed%20Systems-1f2937?style=flat-square)
+![Correctness](https://img.shields.io/badge/Correctness-111827?style=flat-square)
+![WebAssembly](https://img.shields.io/badge/WebAssembly-654FF0?style=flat-square&logo=webassembly&logoColor=white)
+
 ---
 
-## Selected Systems Work
+## Selected Work
 
 | Project | Focus | What it demonstrates |
 |--------|-------|----------------------|
-| [Mini-Docker](https://github.com/Yumekaz/Mini-Docker) | Container runtime from scratch | Linux namespaces, cgroups v2, OverlayFS, veth networking, seccomp/capability hardening, container lifecycle, restart behavior |
+| [Mini-Docker](https://github.com/Yumekaz/Mini-Docker) | Container runtime from scratch | Linux namespaces, cgroups v2, OverlayFS, veth networking, seccomp/capability hardening, lifecycle control |
 | [Mini-Redis-Cassandra](https://github.com/Yumekaz/Mini-Redis-Cassandra) | Distributed key-value store | Consistent hashing, replication, gossip membership, tunable consistency, persistence, failure handling |
 | [Coordination-service](https://github.com/Yumekaz/Coordination-service) | Crash-aware control plane | Leader/follower replication, quorum-gated writes, causal incident tracing, control-plane visibility |
 | [DRT](https://github.com/Yumekaz/DRT) | Deterministic record/replay runtime | Controlled scheduling, replayable concurrency failures, failure bundles, trace reports, schedule exploration |
-| [Qydrel](https://github.com/Yumekaz/Qydrel) | Compiler/runtime correctness lab | Bytecode verification, AST oracle execution, VM/GC/JIT equivalence checks, trace replay, fuzzing, shrinking, regression corpus |
+| [Qydrel](https://github.com/Yumekaz/Qydrel) | Compiler/runtime correctness lab | Bytecode verification, AST oracle execution, VM/GC/JIT equivalence checks, trace replay, fuzzing, shrinking |
 | [Orbits](https://github.com/Yumekaz/Orbits) | Codebase map and cleanup tool | Static dependency graphs, runtime overlays, architecture diffs, cleanup plans, language coverage, visual exploration |
 | [WasmForge](https://github.com/Yumekaz/WasmForge) | Local-first browser IDE | WebAssembly workers, browser-side execution, offline-first storage, Python/JS/SQL experimentation in the browser |
-| [Autoforge](https://github.com/Yumekaz/Autoforge) | Governed AI code generation | YAML-to-code generation, validation gates, adversarial review, traceability, architect/auditor roles |
+| [Autoforge](https://github.com/Yumekaz/Autoforge) | Governed AI code generation | YAML-to-code generation, validation gates, adversarial review, traceability, architect/auditor-style pipeline |
 
 ---
 
-## Current Direction
+## Recently Shipping
 
-I am currently building toward deeper infrastructure around:
-
-- runtime isolation
-- stateful deployment
-- deterministic failure testing
-- durable workflow execution
-- replicated control planes
-- crash recovery
-- codebase intelligence
-- compiler/runtime correctness
-
-The long-term direction is to connect these ideas into a serious infrastructure
-stack: run workloads, coordinate state, recover from failures, replay bugs, and
-explain system behavior with evidence.
+- Improving **Mini-Docker** as a runtime layer for lightweight self-hosted infrastructure
+- Expanding **DRT** around failure bundles, replay reports, and schedule minimization
+- Hardening **Qydrel** as a compiler/runtime correctness lab with executable evidence
+- Turning **Orbits** into a practical codebase-mapping and cleanup CLI
+- Connecting my systems work toward stateful deployment, recovery, and failure visibility
 
 ---
 
@@ -82,6 +80,25 @@ A codebase map for understanding unfamiliar repositories.
 It analyzes project structure, entrypoints, dependency edges, runtime traces,
 dead-code confidence, architecture diffs, and cleanup paths so refactoring can
 be based on evidence instead of guesswork.
+
+---
+
+## Current Direction
+
+I am building toward deeper infrastructure around:
+
+- runtime isolation
+- stateful deployment
+- deterministic failure testing
+- durable workflow execution
+- replicated control planes
+- crash recovery
+- codebase intelligence
+- compiler/runtime correctness
+
+The long-term direction is to connect these ideas into a serious infrastructure
+stack: run workloads, coordinate state, recover from failures, replay bugs, and
+explain system behavior with evidence.
 
 ---
 
