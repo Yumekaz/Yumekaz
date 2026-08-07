@@ -1,120 +1,123 @@
-# Hi, I’m Mihir Swarnkar
+<p align="center">
+  <img src="./profile-console.svg" alt="Mihir Swarnkar distributed systems profile console" width="100%">
+</p>
 
-I build systems from first principles: container runtimes, distributed storage,
-coordination services, deterministic debugging tools, compiler correctness labs,
-and codebase intelligence systems.
+<p align="center">
+  <a href="https://yumekaz.vercel.app/">portfolio</a> ·
+  <a href="https://yumekaz.vercel.app/projects/">projects</a> ·
+  <a href="https://yumekaz.vercel.app/notes/">engineering notes</a> ·
+  <a href="https://yumekaz.vercel.app/resume.pdf">resume</a>
+</p>
 
-My work focuses on correctness, failure modes, replayability, recovery paths,
-and making system behavior observable instead of hidden behind abstractions.
+## `identity :: distributed_backend_engineer`
 
-I prefer a few deep systems over many shallow projects.
+I am a final-year B.Tech CSE student focused on the algorithmic core of
+distributed backend systems: replication, consistency, coordination, and
+recovery under failure. I build inspectable systems that turn those questions
+into executable behavior, failure tests, and evidence reports.
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![Rust](https://img.shields.io/badge/Rust-000000?style=flat-square&logo=rust&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
-![Distributed Systems](https://img.shields.io/badge/Distributed%20Systems-1f2937?style=flat-square)
-![Correctness](https://img.shields.io/badge/Correctness-111827?style=flat-square)
-![WebAssembly](https://img.shields.io/badge/WebAssembly-654FF0?style=flat-square&logo=webassembly&logoColor=white)
+My lane is the logic that keeps services correct and available when nodes
+disagree, leaders become stale, writes are acknowledged too early, or a process
+dies halfway through a state transition. Cloud provisioning, CI/CD automation,
+and hardware-level systems engineering are outside this profile's center of
+gravity.
 
----
+<table>
+  <tr>
+    <td><strong>PRIMARY SYSTEMS</strong><br>replication · quorum · gossip · leases</td>
+    <td><strong>FAILURE MODEL</strong><br>partitions · crashes · stale state · disk faults</td>
+    <td><strong>TOOLS</strong><br>Python · Rust · Go · Linux · gRPC</td>
+  </tr>
+</table>
 
-## Selected Work
+## `/start-here`
 
-| Project | Focus | What it demonstrates |
-|--------|-------|----------------------|
-| [Mini-Docker](https://github.com/Yumekaz/Mini-Docker) | Container runtime from scratch | Linux namespaces, cgroups v2, OverlayFS, veth networking, seccomp/capability hardening, lifecycle control |
-| [Mini-Redis-Cassandra](https://github.com/Yumekaz/Mini-Redis-Cassandra) | Distributed key-value store | Consistent hashing, replication, gossip membership, tunable consistency, persistence, failure handling |
-| [Coordination-service](https://github.com/Yumekaz/Coordination-service) | Crash-aware control plane | Leader/follower replication, quorum-gated writes, causal incident tracing, control-plane visibility |
-| [DRT](https://github.com/Yumekaz/DRT) | Deterministic record/replay runtime | Controlled scheduling, replayable concurrency failures, failure bundles, trace reports, schedule exploration |
-| [Qydrel](https://github.com/Yumekaz/Qydrel) | Compiler/runtime correctness lab | Bytecode verification, AST oracle execution, VM/GC/JIT equivalence checks, trace replay, fuzzing, shrinking |
-| [Orbits](https://github.com/Yumekaz/Orbits) | Codebase map and cleanup tool | Static dependency graphs, runtime overlays, architecture diffs, cleanup plans, language coverage, visual exploration |
-| [WasmForge](https://github.com/Yumekaz/WasmForge) | Local-first browser IDE | WebAssembly workers, browser-side execution, offline-first storage, Python/JS/SQL experimentation in the browser |
-| [Autoforge](https://github.com/Yumekaz/Autoforge) | Governed AI code generation | YAML-to-code generation, validation gates, adversarial review, traceability, architect/auditor-style pipeline |
+The three repositories below are the clearest proof of how I think and build.
 
----
+### `01 / Coordination-service`
 
-## Recently Shipping
+[Repository](https://github.com/Yumekaz/Coordination-service)
 
-- Improving **Mini-Docker** as a runtime layer for lightweight self-hosted infrastructure
-- Expanding **DRT** around failure bundles, replay reports, and schedule minimization
-- Hardening **Qydrel** as a compiler/runtime correctness lab with executable evidence
-- Turning **Orbits** into a practical codebase-mapping and cleanup CLI
-- Connecting my systems work toward stateful deployment, recovery, and failure visibility
+A replicated coordination service for state, sessions, leases, watches, and
+control-plane history. It explores leader/follower behavior, quorum-gated
+operations, causal incident tracing, and recovery under cluster failure.
 
----
+`evidence:` **306 documented tests** · cluster-failure coverage · checked-in
+seed-42 certification note
 
-## Project Notes
+### `02 / Mini-Redis-Cassandra`
 
-### Mini-Docker
+[Repository](https://github.com/Yumekaz/Mini-Redis-Cassandra)
 
-A from-scratch container runtime in Python built directly on Linux primitives.
+A distributed key-value store built to study sharding, replication, gossip
+membership, persistence, and tunable consistency. The important result was a
+real consistency failure: the system exposed read-after-write violations,
+which were traced to protocol decisions and then fixed.
 
-It implements process isolation, resource limits, virtual networking, filesystem
-layering, container lifecycle handling, and a Unix-socket API surface for higher
-level orchestration experiments.
+`evidence:` **23 initial violations → 0** · five consecutive zero-error
+seed-42 reruns after the fixes
 
-This is not meant to replace Docker. It exists to understand what Docker,
-Podman, and platform runtimes abstract away.
+### `03 / FailForge`
 
-### DRT
+[Repository](https://github.com/Yumekaz/FAILFORGE)
 
-A deterministic concurrency testing and record/replay runtime for Python code
-that opts into DRT-managed threads, synchronization primitives, and controlled
-nondeterministic APIs.
+A deterministic fault-injection framework for making distributed failures
+repeatable instead of anecdotal. Seeded schedules, partitions, crashes, disk
+faults, invariant checkers, timeline reports, and delta-debugging turn a
+failure into a reviewable artifact.
 
-The goal is to turn flaky concurrency bugs into repeatable, inspectable
-executions.
+`evidence:` **15 documented fault types** · reproducible schedules · invariant
+driven reports
 
-### Qydrel
+## `/evidence-board`
 
-A Rust compiler/runtime correctness lab for a deliberately small language.
+| signal | what is recorded |
+|---|---|
+| `replication` | leader/follower behavior, quorum-gated operations, causal history |
+| `consistency` | read-after-write violations, root-cause analysis, fixed reruns |
+| `reliability` | seeded fault schedules, invariant checks, minimized failures |
+| `correctness` | 281 oracle comparisons and 241 metamorphic variants in Qydrel |
 
-The interesting part is not language size. The interesting part is the audit
-loop: AST oracle execution, bytecode verification, backend equivalence, trace
-replay, fuzzing, shrinking, and evidence reports.
+These are deliberately inspectable systems prototypes. Their value is not a
+production-readiness claim; the design decisions, failure behavior, fixes, and
+evidence boundaries are public and reviewable.
 
-### Orbits
+## `/adjacent-systems`
 
-A codebase map for understanding unfamiliar repositories.
+- [Qydrel](https://github.com/Yumekaz/Qydrel) — Rust compiler/runtime
+  correctness lab with AST-oracle execution, backend equivalence checks,
+  fuzzing, and shrinking.
+- [Mini-Docker](https://github.com/Yumekaz/Mini-Docker) — Linux container
+  runtime study covering namespaces, cgroups, OverlayFS, networking, seccomp,
+  capabilities, and lifecycle control.
+- [DRT](https://github.com/Yumekaz/DRT) — deterministic record/replay runtime
+  for selected Python concurrency failures.
+- [Cairn](https://github.com/Yumekaz/Cairn) +
+  [DuraFlow](https://github.com/Yumekaz/DURAFLOW) — interrupted deployment
+  recovery, lease reclaim, and durable workflow state transitions.
+- [TinyTantrum](https://github.com/Yumekaz/TinyTantrum) — from-scratch GPT
+  laboratory with reproducible evaluation and checkpoint recovery.
+- [BitNet Triton](https://github.com/Yumekaz/bitnet-1.58b-gemm-triton) —
+  GPU-kernel prototype that measures packed-weight performance against
+  optimized FP16 GEMM.
+- [Orbits](https://github.com/Yumekaz/Orbits) — static and runtime codebase
+  mapping for evidence-backed architecture decisions.
 
-It analyzes project structure, entrypoints, dependency edges, runtime traces,
-dead-code confidence, architecture diffs, and cleanup paths so refactoring can
-be based on evidence instead of guesswork.
+## `/build-protocol`
 
----
+```text
+problem → invariant → failure model → implementation → evidence → boundary
+```
 
-## Current Direction
+- Start with the guarantee and the failure model, not the framework.
+- Treat failures, recovery paths, and observability as design inputs.
+- Prefer a small executable proof over a large architectural claim.
+- Preserve the decision, the failed attempt, the fix, and the remaining limit.
 
-I am building toward deeper infrastructure around:
+## `/connect`
 
-- runtime isolation
-- stateful deployment
-- deterministic failure testing
-- durable workflow execution
-- replicated control planes
-- crash recovery
-- codebase intelligence
-- compiler/runtime correctness
-
-The long-term direction is to connect these ideas into a serious infrastructure
-stack: run workloads, coordinate state, recover from failures, replay bugs, and
-explain system behavior with evidence.
-
----
-
-## How I Work
-
-- Depth over breadth
-- Correctness before cleverness
-- Failure cases as first-class design inputs
-- Written invariants and explicit non-goals
-- Small systems that expose real engineering trade-offs
-- Public code, honest limitations, and reproducible behavior
-
----
-
-## Links
-
-- Portfolio / Engineering Notes: [Mihir](https://yumekaz.github.io/Portfolio/)
-- GitHub: [Yumekaz](https://github.com/Yumekaz)
-- Email: mihir.swarnkar722@gmail.com
+- [Portfolio and engineering notes](https://yumekaz.vercel.app/)
+- [Resume PDF](https://yumekaz.vercel.app/resume.pdf)
+- [LinkedIn](https://www.linkedin.com/in/mihirswarnkar/)
+- [GitHub](https://github.com/Yumekaz)
+- [Email](mailto:mihir.swarnkar722@gmail.com)
