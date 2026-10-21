@@ -1,123 +1,127 @@
 <p align="center">
-  <img src="./profile-console.svg" alt="Mihir Swarnkar distributed systems profile console" width="100%">
+  <img src="./profile-console.svg" alt="Yumekaz — Mihir Swarnkar's open workshop. Building systems. Following the failure." width="100%">
 </p>
 
 <p align="center">
-  <a href="https://yumekaz.vercel.app/">portfolio</a> ·
-  <a href="https://yumekaz.vercel.app/projects/">projects</a> ·
-  <a href="https://yumekaz.vercel.app/notes/">engineering notes</a> ·
-  <a href="https://yumekaz.vercel.app/resume.pdf">resume</a>
+  <a href="https://yumekaz.vercel.app/"><strong>Portfolio</strong></a>
+  &nbsp; / &nbsp;
+  <a href="#selected-systems"><strong>Selected systems</strong></a>
+  &nbsp; / &nbsp;
+  <a href="https://yumekaz.vercel.app/notes/"><strong>Field notes</strong></a>
+  &nbsp; / &nbsp;
+  <a href="mailto:mihir.swarnkar722@gmail.com"><strong>Say hello</strong></a>
 </p>
 
-## `identity :: distributed_backend_engineer`
+<br>
 
-I am a final-year B.Tech CSE student focused on the algorithmic core of
-distributed backend systems: replication, consistency, coordination, and
-recovery under failure. I build inspectable systems that turn those questions
-into executable behavior, failure tests, and evidence reports.
+## Curiosity, made executable.
 
-My lane is the logic that keeps services correct and available when nodes
-disagree, leaders become stale, writes are acknowledged too early, or a process
-dies halfway through a state transition. Cloud provisioning, CI/CD automation,
-and hardware-level systems engineering are outside this profile's center of
-gravity.
+I'm **Mihir Swarnkar**, also known as **Yumekaz**. I build software to answer questions I can't settle by reading alone.
+
+Most of my work lives in **distributed systems, correctness tooling, and the machinery beneath an application**. I'm especially interested in the moment a node disappears, a read goes stale, or a process stops halfway through a promise.
+
+My favourite question: **what must remain true when the system fails?**
+
+<br>
+
+## Selected systems
+
+Four questions. Four ways to investigate them.
 
 <table>
   <tr>
-    <td><strong>PRIMARY SYSTEMS</strong><br>replication · quorum · gossip · leases</td>
-    <td><strong>FAILURE MODEL</strong><br>partitions · crashes · stale state · disk faults</td>
-    <td><strong>TOOLS</strong><br>Python · Rust · Go · Linux · gRPC</td>
+    <td width="50%" valign="top">
+      <sub>01 / COORDINATION</sub>
+      <h3><a href="https://github.com/Yumekaz/Coordination-service">Coordination-service ↗</a></h3>
+      <p><strong>Who gets to lead when nodes disagree?</strong></p>
+      <p>Replicated state, sessions, leases, watches, and recovery. A control-plane prototype that makes leadership and failure history inspectable.</p>
+      <p><code>Python</code> <code>Replication</code> <code>Quorum</code></p>
+    </td>
+    <td width="50%" valign="top">
+      <sub>02 / FAILURE TESTING</sub>
+      <h3><a href="https://github.com/Yumekaz/FAILFORGE">FailForge ↗</a></h3>
+      <p><strong>Can we make the failure happen again?</strong></p>
+      <p>Seeded fault schedules, invariant checks, and failure minimization. A lab for turning distributed-system failures into reproducible evidence.</p>
+      <p><code>Go</code> <code>Fault injection</code> <code>Replay</code></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <sub>03 / RECOVERY</sub>
+      <h3><a href="https://github.com/Yumekaz/Cairn">Cairn ↗</a></h3>
+      <p><strong>What survives an interrupted deploy?</strong></p>
+      <p>A single-node Linux deployment platform exploring durable workflows, health gates, rollback, and reconciliation after interruption.</p>
+      <p><code>Go</code> <code>Durability</code> <code>Linux</code></p>
+    </td>
+    <td width="50%" valign="top">
+      <sub>04 / CORRECTNESS</sub>
+      <h3><a href="https://github.com/Yumekaz/Qydrel">Qydrel ↗</a></h3>
+      <p><strong>Do different runtimes mean the same thing?</strong></p>
+      <p>A small Rust language and runtime lab with an independent oracle, backend comparisons, fuzzing, and a museum of minimized bugs.</p>
+      <p><code>Rust</code> <code>Compilers</code> <code>Fuzzing</code></p>
+    </td>
   </tr>
 </table>
 
-## `/start-here`
+### A failure worth reading
 
-The three repositories below are the clearest proof of how I think and build.
+In **[Mini-Redis-Cassandra](https://github.com/Yumekaz/Mini-Redis-Cassandra)**, acknowledged writes were followed by stale reads. Investigating that failure exposed a mismatch between write quorums and read guarantees, along with persistence and transport issues.
 
-### `01 / Coordination-service`
+The repository follows the trail through the failure, the fixes, and the reruns.
 
-[Repository](https://github.com/Yumekaz/Coordination-service)
+<br>
 
-A replicated coordination service for state, sessions, leases, watches, and
-control-plane history. It explores leader/follower behavior, quorum-gated
-operations, causal incident tracing, and recovery under cluster failure.
+## Elsewhere in the workshop
 
-`evidence:` **306 documented tests** · cluster-failure coverage · checked-in
-seed-42 certification note
+I also build tools and applications around reading, code exploration, and learning by implementation.
 
-### `02 / Mini-Redis-Cassandra`
+| Project | The idea |
+| :--- | :--- |
+| **[Yomikura](https://github.com/Yumekaz/Yomikura)** | A Suwayomi library and reader client for desktop, web, and PWA. |
+| **[Orbits](https://github.com/Yumekaz/Orbits)** | Map a codebase's structure and runtime connections before changing it. |
+| **[TinyTantrum](https://github.com/Yumekaz/TinyTantrum)** | Learn the machinery of a GPT through implementation, evaluation, and recovery. |
 
-[Repository](https://github.com/Yumekaz/Mini-Redis-Cassandra)
+<details>
+<summary><strong>Open the systems drawer</strong></summary>
 
-A distributed key-value store built to study sharding, replication, gossip
-membership, persistence, and tunable consistency. The important result was a
-real consistency failure: the system exposed read-after-write violations,
-which were traced to protocol decisions and then fixed.
+<br>
 
-`evidence:` **23 initial violations → 0** · five consecutive zero-error
-seed-42 reruns after the fixes
+| Project | Investigation |
+| :--- | :--- |
+| **[DRT](https://github.com/Yumekaz/DRT)** | Record and replay concurrency failures in Python programs using explicit scheduling points. |
+| **[DuraFlow](https://github.com/Yumekaz/DURAFLOW)** | Checkpoint workflow steps and recover after interruption. |
+| **[Mini-Docker](https://github.com/Yumekaz/Mini-Docker)** | Explore Linux isolation through namespaces, cgroups, OverlayFS, and lifecycle control. |
+| **[BitNet Triton](https://github.com/Yumekaz/bitnet-1.58b-gemm-triton)** | Measure a packed ternary GEMM experiment against optimized FP16 baselines, including negative results. |
 
-### `03 / FailForge`
+</details>
 
-[Repository](https://github.com/Yumekaz/FAILFORGE)
+<br>
 
-A deterministic fault-injection framework for making distributed failures
-repeatable instead of anecdotal. Seeded schedules, partitions, crashes, disk
-faults, invariant checkers, timeline reports, and delta-debugging turn a
-failure into a reviewable artifact.
+## How I work
 
-`evidence:` **15 documented fault types** · reproducible schedules · invariant
-driven reports
+1. **Name the guarantee.** Decide what must remain true and which failures the system must handle.
+2. **Make the failure repeatable.** Keep the seed, trace, or smallest example that explains it.
+3. **Leave a useful record.** Document the decision, the fix, and the limits that remain.
 
-## `/evidence-board`
+These repositories include focused prototypes and learning projects. Their design notes, tests, and documented boundaries are part of the work.
 
-| signal | what is recorded |
-|---|---|
-| `replication` | leader/follower behavior, quorum-gated operations, causal history |
-| `consistency` | read-after-write violations, root-cause analysis, fixed reruns |
-| `reliability` | seeded fault schedules, invariant checks, minimized failures |
-| `correctness` | 281 oracle comparisons and 241 metamorphic variants in Qydrel |
+**Working materials** &nbsp; `Python` · `Go` · `Rust` · `TypeScript` · `Linux`
 
-These are deliberately inspectable systems prototypes. Their value is not a
-production-readiness claim; the design decisions, failure behavior, fixes, and
-evidence boundaries are public and reviewable.
+<br>
 
-## `/adjacent-systems`
+---
 
-- [Qydrel](https://github.com/Yumekaz/Qydrel) — Rust compiler/runtime
-  correctness lab with AST-oracle execution, backend equivalence checks,
-  fuzzing, and shrinking.
-- [Mini-Docker](https://github.com/Yumekaz/Mini-Docker) — Linux container
-  runtime study covering namespaces, cgroups, OverlayFS, networking, seccomp,
-  capabilities, and lifecycle control.
-- [DRT](https://github.com/Yumekaz/DRT) — deterministic record/replay runtime
-  for selected Python concurrency failures.
-- [Cairn](https://github.com/Yumekaz/Cairn) +
-  [DuraFlow](https://github.com/Yumekaz/DURAFLOW) — interrupted deployment
-  recovery, lease reclaim, and durable workflow state transitions.
-- [TinyTantrum](https://github.com/Yumekaz/TinyTantrum) — from-scratch GPT
-  laboratory with reproducible evaluation and checkpoint recovery.
-- [BitNet Triton](https://github.com/Yumekaz/bitnet-1.58b-gemm-triton) —
-  GPU-kernel prototype that measures packed-weight performance against
-  optimized FP16 GEMM.
-- [Orbits](https://github.com/Yumekaz/Orbits) — static and runtime codebase
-  mapping for evidence-backed architecture decisions.
+<p align="center">
+  <strong>Have an interesting system, a stubborn bug, or a good question?</strong><br>
+  I'd be glad to hear about it.
+</p>
 
-## `/build-protocol`
-
-```text
-problem → invariant → failure model → implementation → evidence → boundary
-```
-
-- Start with the guarantee and the failure model, not the framework.
-- Treat failures, recovery paths, and observability as design inputs.
-- Prefer a small executable proof over a large architectural claim.
-- Preserve the decision, the failed attempt, the fix, and the remaining limit.
-
-## `/connect`
-
-- [Portfolio and engineering notes](https://yumekaz.vercel.app/)
-- [Resume PDF](https://yumekaz.vercel.app/resume.pdf)
-- [LinkedIn](https://www.linkedin.com/in/mihirswarnkar/)
-- [GitHub](https://github.com/Yumekaz)
-- [Email](mailto:mihir.swarnkar722@gmail.com)
+<p align="center">
+  <a href="mailto:mihir.swarnkar722@gmail.com">Email</a>
+  &nbsp; · &nbsp;
+  <a href="https://www.linkedin.com/in/mihirswarnkar/">LinkedIn</a>
+  &nbsp; · &nbsp;
+  <a href="https://yumekaz.vercel.app/resume.pdf">Résumé</a>
+  &nbsp; · &nbsp;
+  <a href="https://github.com/Yumekaz?tab=repositories">All repositories ↗</a>
+</p>
