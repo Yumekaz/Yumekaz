@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="350" viewBox="0 0 1000 350" role="img" aria-labelledby="title desc">
+  <title id="title">Cairn — A process can stop. The work should survive.</title>
+  <desc id="desc">Project artwork for Cairn. Recovery. The repository link and project description follow this image.</desc>
+  <defs>
+    <style>
+      .sans { font-family: Arial, Helvetica, sans-serif; }
+      .serif { font-family: Georgia, 'Times New Roman', serif; }
+      .mono { font-family: 'Courier New', monospace; }
+    </style>
+
+  </defs>
+  <rect width="1000" height="350" rx="4" fill="#B5A4F4"/>
+  <path d="M40 69H960M385 95V310" stroke="#211B2C" stroke-opacity=".2"/>
+  <text x="40" y="45" class="mono" font-size="16" fill="#211B2C" letter-spacing="1">03 / RECOVERY</text>
+  <text x="958" y="45" class="mono" font-size="14" fill="#211B2C" text-anchor="end">SELECTED WORK</text>
+  <g stroke="#211B2C" stroke-width="1.5" stroke-linejoin="round">
+    <path d="M65 253L202 205L339 253L202 308Z" fill="#211B2C"/>
+    <path d="M65 230L202 182L339 230V253L202 308V285L65 253Z" fill="#B5A4F4"/>
+    <path d="M65 230L202 182L339 230L202 285Z" fill="#B5A4F4"/>
+    <path d="M82 186L202 145L322 186V205L202 253L82 205Z" fill="#B5A4F4"/>
+    <path d="M82 186L202 145L322 186L202 234Z" fill="#F5F1E8"/>
+    <path d="M108 135L202 103L296 135V151L202 189L108 151Z" fill="#D4FF5A"/>
+    <path d="M108 135L202 103L296 135L202 172Z" fill="#D4FF5A"/>
+    <path d="M202 172V189M202 234V253M202 285V308"/>
+  </g>
+  <path d="M202 189V234M202 253V285" stroke="#211B2C" stroke-dasharray="3 4"/>
+  <path d="M126 135L202 109L278 135L202 166Z" fill="none" stroke="#211B2C" stroke-opacity=".25"/>
+  <circle cx="202" cy="137" r="5" fill="#211B2C"/>
+  <text x="425" y="153" class="serif" font-size="61" fill="#211B2C" letter-spacing="-2">Cairn</text>
+  <text x="426" y="210" class="sans" font-size="28" fill="#211B2C" >A process can stop.</text>
+  <text x="426" y="250" class="sans" font-size="28" fill="#211B2C" >The work should survive.</text>
+  <text x="426" y="309" class="mono" font-size="14" fill="#211B2C" letter-spacing=".6">GO / DURABLE WORKFLOWS / LINUX</text>
+  <path d="M923 279H949V305M949 279L921 307" fill="none" stroke="#211B2C" stroke-width="2"/>
+
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="350" viewBox="0 0 1000 350" role="img" aria-labelledby="title desc">
+  <title id="title">Coordination — Who gets to lead when nodes disagree?</title>
+  <desc id="desc">Project artwork for Coordination. Agreement. The repository link and project description follow this image.</desc>
+  <defs>
+    <style>
+      .sans { font-family: Arial, Helvetica, sans-serif; }
+      .serif { font-family: Georgia, 'Times New Roman', serif; }
+      .mono { font-family: 'Courier New', monospace; }
+    </style>
+
+  </defs>
+  <rect width="1000" height="350" rx="4" fill="#F5F1E8"/>
+  <path d="M40 69H960M385 95V310" stroke="#211B2C" stroke-opacity=".2"/>
+  <text x="40" y="45" class="mono" font-size="16" fill="#211B2C" letter-spacing="1">01 / AGREEMENT</text>
+  <text x="958" y="45" class="mono" font-size="14" fill="#211B2C" text-anchor="end">SELECTED WORK</text>
+  <g fill="none" stroke="#211B2C">
+    <ellipse cx="201" cy="204" rx="144" ry="95" stroke-width="1.5"/>
+    <ellipse cx="201" cy="204" rx="144" ry="65"/>
+    <ellipse cx="201" cy="204" rx="144" ry="34"/>
+    <ellipse cx="201" cy="204" rx="107" ry="95"/>
+    <ellipse cx="201" cy="204" rx="54" ry="95"/>
+    <path d="M57 204H345M201 109V299"/>
+  </g>
+  <path d="M99 137L201 204L304 137M201 204L304 271M201 204L99 271" fill="none" stroke="#F5F1E8" stroke-width="8"/>
+  <path d="M99 137L201 204L304 137M201 204L304 271M201 204L99 271" fill="none" stroke="#211B2C" stroke-width="2.5"/>
+  <g fill="#211B2C"><circle cx="99" cy="137" r="9"/><circle cx="304" cy="137" r="9"/><circle cx="99" cy="271" r="9"/><circle cx="304" cy="271" r="9"/></g>
+  <circle cx="201" cy="204" r="24" fill="#D4FF5A" stroke="#211B2C" stroke-width="2"/>
+  <circle cx="201" cy="204" r="6" fill="#211B2C"/>
+  <text x="425" y="153" class="serif" font-size="61" fill="#211B2C" letter-spacing="-2">Coordination</text>
+  <text x="426" y="210" class="sans" font-size="28" fill="#211B2C" >Who gets to lead</text>
+  <text x="426" y="250" class="sans" font-size="28" fill="#211B2C" >when nodes disagree?</text>
+  <text x="426" y="309" class="mono" font-size="14" fill="#211B2C" letter-spacing=".6">PYTHON / REPLICATION / QUORUM</text>
+  <path d="M923 279H949V305M949 279L921 307" fill="none" stroke="#211B2C" stroke-width="2"/>
+
+</svg>
